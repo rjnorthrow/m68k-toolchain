@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV BINUTILS_RELEASE=2.35 \
     GCC_RELEASE=9.3.0 \
     MAKE_DIR=/cross \
-    MAKE_OPTS="" \
+    MAKE_OPTS="-j4" \
     TIME_ZONE="Europe/London"
 
 RUN apt-get update && \
