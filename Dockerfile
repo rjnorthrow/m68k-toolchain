@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
-ENV BINUTILS_RELEASE=2.35 \
-    GCC_RELEASE=9.3.0 \
+ENV BINUTILS_RELEASE=2.28 \
+    GCC_RELEASE=7.1.0 \
     MAKE_DIR=/cross \
     MAKE_OPTS="-j4" \
     TIME_ZONE="Europe/London"
@@ -15,12 +15,12 @@ RUN apt-get update && \
         libgmp-dev libmpc-dev libmpfr-dev ncurses-dev rsync texinfo wget && \
     mkdir -p ${MAKE_DIR}/bin && \
     export PATH=$PATH:${MAKE_DIR}/bin && \
-    wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.xz && \
-    wget https://ftp.gnu.org/gnu/gcc/gcc-${GCC_RELEASE}/gcc-${GCC_RELEASE}.tar.xz && \
+    wget https://ftp.gnu.org/gnu/binutils/binutils-${BINUTILS_RELEASE}.tar.bz2 && \
+    wget https://ftp.gnu.org/gnu/gcc/gcc-${GCC_RELEASE}/gcc-${GCC_RELEASE}.tar.bz2 && \
     wget http://sun.hasenbraten.de/vasm/release/vasm.tar.gz && \
     wget http://sun.hasenbraten.de/vlink/release/vlink.tar.gz && \
-    tar xf binutils-${BINUTILS_RELEASE}.tar.xz && \
-    tar xf gcc-${GCC_RELEASE}.tar.xz && \
+    tar xf binutils-${BINUTILS_RELEASE}.tar.bz2 && \
+    tar xf gcc-${GCC_RELEASE}.tar.bz2 && \
     tar xf vasm.tar.gz && \
     tar xf vlink.tar.gz && \
     cd binutils-${BINUTILS_RELEASE} && \
