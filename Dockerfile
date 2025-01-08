@@ -24,7 +24,7 @@ RUN apt-get update && \
     tar xf vasm.tar.gz && \
     tar xf vlink.tar.gz && \
     cd binutils-${BINUTILS_RELEASE} && \
-    ./configure --prefix=${MAKE_DIR} --target=m68k-elf-gcc && \
+    ./configure --prefix=${MAKE_DIR} --target=m68k-elf && \
     make ${MAKE_OPTS} && \
     make install && \
     cd ../gcc-${GCC_RELEASE} && \
@@ -32,7 +32,7 @@ RUN apt-get update && \
     ./contrib/download_prerequisites && \
     mkdir /gcc-build && \
     cd /gcc-build && \
-    ../gcc-${GCC_RELEASE}/configure --prefix=${MAKE_DIR} --target=m68k-elf-gcc --enable-languages=c --disable-libssp && \
+    ../gcc-${GCC_RELEASE}/configure --prefix=${MAKE_DIR} --target=m68k-elf --enable-languages=c --disable-libssp && \
     make ${MAKE_OPTS} && \
     make install && \
     cd ../vasm && \
