@@ -1,7 +1,7 @@
 # m68k-toolchain
 Toolchains for building m68k on x86_64
 
-There are two toolchains created, m68k-unknown-elf and m68k-amigaos
+There are two toolchains created, m68k-elf and m68k-amigaos
 
 This was created for [rjnorthrow/atk](https://github.com/rjnorthrow/atk) but can be used for other purposes
 
