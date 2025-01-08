@@ -5,8 +5,8 @@ ENV BINUTILS_RELEASE="2.34" \
     MAKE_DIR="cross" \
     MAKE_OPTS="-j4"
 
-RUN apt update && \
-    apt install -y autoconf bison build-essential flex gettext lhasa libgmp-dev \
+RUN apt-get update && \
+    apt-get install -y autoconf bison build-essential flex gettext lhasa libgmp-dev \
                    libmpc-dev libmpfr-dev ncurses-dev texinfo wget zopfli git \
                    python3-pip rsync && \
     python3 -m pip install --user -U pip setuptools && \
@@ -38,4 +38,4 @@ RUN git config --global pull.rebase false && \
     make update && \
     make all ${MAKE_OPTS} PREFIX=$MDIR && \
     cd / && \
-    rm -rf /amiga-gcc* /binutils* /gcc*
+    rm -rf $HOME/_tc
