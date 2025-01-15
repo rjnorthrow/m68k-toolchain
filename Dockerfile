@@ -1,19 +1,20 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 ENV BINUTILS_RELEASE="2.34" \
     GCC_RELEASE="9.3.0" \
     MAKE_DIR="/cross" \
-    MAKE_OPTS="-j4"
+    MAKE_OPTS="-j4" \
+    TIME_ZONE="Europe/London"
 
 RUN apt-get update && \
-    apt-get install -y autoconf bison build-essential flex gettext git lhasa libgmp-dev libmpc-dev \
-                       libmpfr-dev ncurses-dev python3-pip rsync texinfo wget zip zopfli && \
-    python3 -m pip install --user -U pip setuptools && \
-    python3 -m pip install --user crcmod cython && \
-    python3 -m pip install --user -U git+https://github.com/cnvogelg/amitools.git
+    export DEBIAN_FRONTEND=noninteractive && \
+    ln -fs /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && \
+    apt-get install -y apt-utils tzdata && \
+    dpkg-reconfigure --frontend noninteractive tzdata && \
+    apt-get install -y autoconf bison build-essential flex gettext git lhasa libgmp-dev \
+                       libmpc-dev libncurses-dev python3-venv rsync texinfo wget zip zopfli
 
-RUN git config --global pull.rebase false && \
-    export MAKE_DIR && \
+RUN export MAKE_DIR && \
     mkdir -p $MAKE_DIR/bin && \
     export PATH=$PATH:$MAKE_DIR/bin && \
     mkdir $HOME/_tc && cd $HOME/_tc && \
