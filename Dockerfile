@@ -11,7 +11,7 @@ RUN apt-get update && \
     ln -fs /usr/share/zoneinfo/$TIME_ZONE /etc/localtime && \
     apt-get install -y apt-utils tzdata && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
-    apt-get install -y autoconf bison build-essential flex gettext git lhasa libgmp-dev \
+    apt-get install -y autoconf bison build-essential file flex gettext git lhasa libgmp-dev \
                        libmpc-dev libncurses-dev python3-venv rsync texinfo wget zip zopfli
 
 RUN export MAKE_DIR && \
