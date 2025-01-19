@@ -1,5 +1,5 @@
 # m68k-toolchain
-Toolchains for building m68k on x86_64
+Toolchains for building m68k
 
 There are two toolchains created, m68k-elf and m68k-amigaos
 
