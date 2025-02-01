@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 ENV BINUTILS_RELEASE=2.28 \
     GCC_RELEASE=7.1.0 \
