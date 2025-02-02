@@ -7,4 +7,4 @@ This was created for [rjnorthrow/atk](https://github.com/rjnorthrow/atk) but can
 
 The executables can be found in `/cross/bin` so put this in your `$PATH`
 
-Also in this path can be found `vasmm68k_mot`, `vlink` and `vobjdump` executables
+Architectures supported: linux/amd64, linux/arm64, linux/arm/v7, linux/arm/v8
